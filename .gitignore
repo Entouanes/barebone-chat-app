@@ -1,0 +1,8 @@
+// Purpose: Ignore files and directories that are not needed in the repository
+
+// Ignore secrets
+.env
+secrets*
+
+// Ignore python virtual environment
+.venv
