@@ -1,0 +1,120 @@
+{
+  "rockName": "Granite",
+  "colour": "Gray or pink",
+  "continent": "North America",
+  "description": "A coarse-grained igneous rock composed mainly of quartz, feldspar, and mica."
+}
+{
+  "rockName": "Basalt",
+  "colour": "Dark gray to black",
+  "continent": "Africa",
+  "description": "A fine-grained volcanic rock that forms from the rapid cooling of basaltic lava."
+}
+{
+  "rockName": "Limestone",
+  "colour": "White to gray",
+  "continent": "Europe",
+  "description": "A sedimentary rock composed primarily of calcium carbonate, often containing fossils."
+}
+{
+  "rockName": "Sandstone",
+  "colour": "Beige to reddish-brown",
+  "continent": "Australia",
+  "description": "A clastic sedimentary rock formed from cemented sand-sized mineral grains."
+}
+{
+  "rockName": "Marble",
+  "colour": "White to multicolored",
+  "continent": "Asia",
+  "description": "A metamorphic rock formed when limestone is subjected to high heat and pressure."
+}
+{
+  "rockName": "Slate",
+  "colour": "Gray to black",
+  "continent": "South America",
+  "description": "A fine-grained metamorphic rock that splits easily into thin layers."
+}
+{
+  "rockName": "Obsidian",
+  "colour": "Black to dark green",
+  "continent": "North America",
+  "description": "A naturally occurring volcanic glass formed from rapidly cooled lava."
+}
+{
+  "rockName": "Gabbro",
+  "colour": "Dark gray to black",
+  "continent": "Africa",
+  "description": "A coarse-grained igneous rock rich in plagioclase and pyroxene minerals."
+}
+{
+  "rockName": "Quartzite",
+  "colour": "White to gray",
+  "continent": "Europe",
+  "description": "A hard, metamorphic rock formed from quartz-rich sandstone."
+}
+{
+  "rockName": "Chalk",
+  "colour": "White",
+  "continent": "Asia",
+  "description": "A soft, white, porous sedimentary rock made of calcium carbonate."
+}
+{
+  "rockName": "Shale",
+  "colour": "Gray to black",
+  "continent": "North America",
+  "description": "A fine-grained sedimentary rock formed from compacted mud and clay."
+}
+{
+  "rockName": "Diorite",
+  "colour": "Gray to white with black spots",
+  "continent": "South America",
+  "description": "An intrusive igneous rock composed of plagioclase feldspar and hornblende."
+}
+{
+  "rockName": "Rhyolite",
+  "colour": "Light gray to pink",
+  "continent": "Australia",
+  "description": "A fine-grained volcanic rock rich in silica."
+}
+{
+  "rockName": "Breccia",
+  "colour": "Variegated",
+  "continent": "Africa",
+  "description": "A rock composed of angular fragments of other rocks cemented together."
+}
+{
+  "rockName": "Flint",
+  "colour": "Dark gray to black",
+  "continent": "Europe",
+  "description": "A hard, sedimentary form of quartz often used historically for tools."
+}
+{
+  "rockName": "Coal",
+  "colour": "Black",
+  "continent": "Asia",
+  "description": "A combustible sedimentary rock formed from ancient plant material."
+}
+{
+  "rockName": "Dolomite",
+  "colour": "Gray to pink",
+  "continent": "North America",
+  "description": "A sedimentary carbonate rock similar to limestone but rich in magnesium."
+}
+{
+  "rockName": "Pegmatite",
+  "colour": "Varied",
+  "continent": "Australia",
+  "description": "An igneous rock with exceptionally large crystals, often containing rare minerals."
+}
+{
+  "rockName": "Tuff",
+  "colour": "Light gray to brown",
+  "continent": "Europe",
+  "description": "A volcanic rock formed from ash and other volcanic debris."
+}
+{
+  "rockName": "Conglomerate",
+  "colour": "Varied",
+  "continent": "South America",
+  "description": "A sedimentary rock composed of rounded fragments cemented together."
+}

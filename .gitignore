@@ -6,3 +6,8 @@ secrets*
 
 // Ignore python virtual environment
 .venv
+
+// Ignore text files
+*.pdf
+*.txt
+*.drawio

@@ -1,0 +1,120 @@
+{
+  "rockName": "Pumice",
+  "colour": "Light gray to white",
+  "continent": "North America",
+  "description": "A highly porous volcanic rock that forms during explosive eruptions."
+}
+{
+  "rockName": "Siltstone",
+  "colour": "Brown to gray",
+  "continent": "Europe",
+  "description": "A sedimentary rock composed of fine silt-sized particles."
+}
+{
+  "rockName": "Dunite",
+  "colour": "Green to yellowish",
+  "continent": "Asia",
+  "description": "An ultramafic igneous rock composed mostly of olivine."
+}
+{
+  "rockName": "Kimberlite",
+  "colour": "Blue-gray to dark green",
+  "continent": "Africa",
+  "description": "An igneous rock famous for sometimes containing diamonds."
+}
+{
+  "rockName": "Breccia",
+  "colour": "Variegated",
+  "continent": "Australia",
+  "description": "A clastic sedimentary rock with angular fragments cemented together."
+}
+{
+  "rockName": "Phyllite",
+  "colour": "Gray to greenish-gray",
+  "continent": "South America",
+  "description": "A metamorphic rock with a fine-grained texture and a silky sheen."
+}
+{
+  "rockName": "Chert",
+  "colour": "Light brown to gray",
+  "continent": "North America",
+  "description": "A hard, fine-grained sedimentary rock composed primarily of silica."
+}
+{
+  "rockName": "Laterite",
+  "colour": "Reddish-brown",
+  "continent": "Africa",
+  "description": "A soil and rock type rich in iron and aluminum, formed in tropical climates."
+}
+{
+  "rockName": "Greenschist",
+  "colour": "Green to grayish-green",
+  "continent": "Asia",
+  "description": "A metamorphic rock rich in green minerals such as chlorite and epidote."
+}
+{
+  "rockName": "Rhyolite",
+  "colour": "Pink to light gray",
+  "continent": "Europe",
+  "description": "A volcanic rock high in silica content, often forming from lava flows."
+}
+{
+  "rockName": "Talc Schist",
+  "colour": "Gray to silver",
+  "continent": "Australia",
+  "description": "A metamorphic rock dominated by talc, giving it a soft and greasy feel."
+}
+{
+  "rockName": "Pegmatite",
+  "colour": "White to pink",
+  "continent": "South America",
+  "description": "An igneous rock known for large crystals and rare minerals."
+}
+{
+  "rockName": "Shale",
+  "colour": "Dark gray to black",
+  "continent": "North America",
+  "description": "A fine-grained sedimentary rock formed from compacted mud and clay."
+}
+{
+  "rockName": "Obsidian",
+  "colour": "Black to dark green",
+  "continent": "Asia",
+  "description": "A naturally occurring volcanic glass formed from rapidly cooled lava."
+}
+{
+  "rockName": "Syenite",
+  "colour": "Gray to pink",
+  "continent": "Europe",
+  "description": "An igneous rock similar to granite but with little or no quartz."
+}
+{
+  "rockName": "Carbonatite",
+  "colour": "White to grayish-green",
+  "continent": "Africa",
+  "description": "A rare igneous rock composed predominantly of carbonate minerals."
+}
+{
+  "rockName": "Travertine",
+  "colour": "Cream to tan",
+  "continent": "Asia",
+  "description": "A type of limestone formed by mineral springs, often used in building."
+}
+{
+  "rockName": "Flint",
+  "colour": "Dark gray to black",
+  "continent": "Europe",
+  "description": "A hard sedimentary rock often used historically for tools and fire-starting."
+}
+{
+  "rockName": "Anorthosite",
+  "colour": "Light gray to white",
+  "continent": "Australia",
+  "description": "An igneous rock composed almost entirely of plagioclase feldspar."
+}
+{
+  "rockName": "Quartzite",
+  "colour": "White to light pink",
+  "continent": "South America",
+  "description": "A metamorphic rock formed from sandstone, highly resistant to weathering."
+}
