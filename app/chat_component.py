@@ -1,6 +1,6 @@
 from openai import AzureOpenAI
 import streamlit as st
-from search_config import SearchConfig
+from search_config import SearchWrapper
 
 api_key = st.secrets["AZURE_OPENAI_API_KEY"]
 api_version = st.secrets["AZURE_OPENAI_API_VERSION"]
@@ -39,7 +39,7 @@ Query: {query}
 Sources:\n{sources}
 """
 
-ai_search = SearchConfig()
+ai_search = SearchWrapper()
 
 def sources_formatted(sources):
     return "=================\n".join([f'TITLE: {document["title"]}, CONTENT: {document["chunk"]}, LOCATIONS: {document["locations"]}' for document in sources])

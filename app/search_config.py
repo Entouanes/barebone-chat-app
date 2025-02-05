@@ -48,39 +48,34 @@ from dotenv import load_dotenv
 import os
 
 
-class SearchConfig:
+class SearchWrapper:
     def __init__(
         self,
-        azure_openai_endpoint=None,
-        azure_openai_api_key=None,
-        azure_search_service=None,
-        azure_storage_connection=None,
-        azure_openai_account=None,
-        azure_ai_multiservice_key=None,
-        azure_ai_multiservice_account=None,
-        index_name="py-rag-tutorial-idx",
-        skillset_name="py-rag-tutorial-ss",
-        indexer_name="py-rag-tutorial-idxr",
-        container_name="nasa-data-container"
+        index_name="default-idx",
+        skillset_name="default-ss",
+        indexer_name="default-idxr",
+        container_name="deafult-container",
+        data_source_name="default-ds"
     ):
         """
         Initializes the Pipeline with environment variables and configuration settings.
         Loads variables from the .env file.
         """
         load_dotenv()
+        self.AZURE_OPENAI_ENDPOINT=os.getenv("AZURE_OPENAI_ENDPOINT")
+        self.AZURE_OPENAI_API_KEY=os.getenv("AZURE_OPENAI_API_KEY")
+        self.AZURE_SEARCH_SERVICE=os.getenv("AZURE_SEARCH_SERVICE")
+        self.AZURE_STORAGE_CONNECTION=os.getenv("AZURE_STORAGE_CONNECTION")
+        self.AZURE_OPENAI_ACCOUNT=os.getenv("AZURE_OPENAI_ACCOUNT")
+        self.AZURE_AI_MULTISERVICE_KEY=os.getenv("AZURE_AI_MULTISERVICE_KEY")
+        self.AZURE_AI_MULTISERVICE_ACCOUNT=os.getenv("AZURE_AI_MULTISERVICE_ACCOUNT")
+        self.index_name=index_name
+        self.data_source_name=data_source_name
+        self.skillset_name=skillset_name
+        self.indexer_name=indexer_name
+        self.container_name=container_name
         self.credential = DefaultAzureCredential()
-        self.AZURE_OPENAI_ENDPOINT = azure_openai_endpoint or os.getenv("AZURE_OPENAI_ENDPOINT")
-        self.AZURE_OPENAI_API_KEY = azure_openai_api_key or os.getenv("AZURE_OPENAI_API_KEY")
-        self.AZURE_SEARCH_SERVICE = azure_search_service or os.getenv("AZURE_SEARCH_SERVICE")
-        self.AZURE_STORAGE_CONNECTION = azure_storage_connection or os.getenv("AZURE_STORAGE_CONNECTION")
-        self.AZURE_OPENAI_ACCOUNT = azure_openai_account or os.getenv("AZURE_OPENAI_ACCOUNT")
-        self.AZURE_AI_MULTISERVICE_KEY = azure_ai_multiservice_key or os.getenv("AZURE_AI_MULTISERVICE_KEY")
-        self.AZURE_AI_MULTISERVICE_ACCOUNT = azure_ai_multiservice_account or os.getenv("AZURE_AI_MULTISERVICE_ACCOUNT")
-        self.index_name = index_name
-        self.skillset_name = skillset_name
-        self.indexer_name = indexer_name
-        self.container_name = container_name
-        self.search_client = SearchClient(endpoint=self.AZURE_SEARCH_SERVICE, index_name=self.index_name, credential=self.credential)
+        self.search_client=SearchClient(endpoint=self.AZURE_SEARCH_SERVICE, index_name=self.index_name, credential=self.credential)
 
     def search(self, query: str):
         """
@@ -99,7 +94,7 @@ class SearchConfig:
             select=["title", "chunk", "locations"],
             semantic_configuration_name='my-semantic-config',
             top=5,
-            query_type=QueryType.SEMANTIC, 
+            query_type='', 
         )
 
         return results
@@ -186,7 +181,7 @@ class SearchConfig:
         indexer_client = SearchIndexerClient(endpoint=self.AZURE_SEARCH_SERVICE, credential=self.credential)
         container = SearchIndexerDataContainer(name="nasa-data-container")
         data_source_connection = SearchIndexerDataSourceConnection(
-            name="py-rag-tutorial-ds",
+            name=self.data_source_name,
             type="azureblob",
             connection_string=self.AZURE_STORAGE_CONNECTION,
             container=container

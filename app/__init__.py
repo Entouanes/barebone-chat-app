@@ -1,2 +1,2 @@
 
-from .search_config import SearchConfig
+from .search_config import SearchWrapper
