@@ -1,5 +1,6 @@
 from blob_wrapper import BlobWrapper
 from search_wrapper import SearchWrapper
+import time
 
 # Initialize search service
 search_service = SearchWrapper()
@@ -15,6 +16,9 @@ if __name__ == "__main__":
 
     # Create or update the search service configuration
     search_service.run_config_pipeline()
+    
+    # Wait for the indexer to finish
+    time.sleep(30)
 
-    # Perform a test search:
-    search_service.search("When was WestSide Story performed for the first time at the New York Philharmonic?")
+    # Query the search service
+    print(list(search_service.search("puccini")))

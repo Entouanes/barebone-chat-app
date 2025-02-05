@@ -17,7 +17,7 @@ class SearchWrapper:
         index_name="default-idx",
         skillset_name="default-ss",
         indexer_name="default-idxr",
-        container_name="default-full",
+        container_name="default-container",
         data_source_name="default-ds"
     ):
         """
@@ -31,12 +31,12 @@ class SearchWrapper:
         self.AZURE_STORAGE_CONNECTION=os.getenv("AZURE_STORAGE_CONNECTION")
         self.AZURE_AI_COGNITIVE_SERVICES_KEY=os.getenv("AZURE_AI_COGNITIVE_SERVICES_KEY")
         self.AZURE_AI_COGNITIVE_SERVICES_ACCOUNT=os.getenv("AZURE_AI_COGNITIVE_SERVICES_ACCOUNT")
-        self.index_name=index_name
-        self.data_source_name=data_source_name
-        self.skillset_name=skillset_name
-        self.indexer_name=indexer_name
-        self.container_name=container_name
-        self.credential = DefaultAzureCredential()
+        self.index_name=os.getenv("AZURE_SEARCH_INDEX_NAME") or index_name
+        self.indexer_name=os.getenv("AZURE_SEARCH_INDEXER_NAME") or indexer_name
+        self.data_source_name=os.getenv("AZURE_SEARCH_DATA_SOURCE") or data_source_name
+        self.skillset_name=os.getenv("AZURE_SEARCH_SKILLSET_NAME") or skillset_name
+        self.container_name=os.getenv("AZURE_STORAGE_CONTAINER_NAME") or container_name
+        self.credential=DefaultAzureCredential()
         self.search_client=SearchClient(endpoint=self.AZURE_SEARCH_SERVICE, index_name=self.index_name, credential=self.credential)
 
     def search(self, query: str):
@@ -44,19 +44,11 @@ class SearchWrapper:
         Connects to the Azure AI search service using default environment variables,
         executes the provided query, and returns the top 5 results.
         """
-        vector_query = VectorizableTextQuery(
-            text=query, 
-            k_nearest_neighbors=50, 
-            fields="text_vector"
-        )
 
         results = self.search_client.search(
             search_text=query,
-            vector_queries=[vector_query],
-            select=["title", "chunk", "locations"],
             semantic_configuration_name='my-semantic-config',
             top=5,
-            query_type='', 
         )
 
         return results
@@ -67,7 +59,32 @@ class SearchWrapper:
         Sequentially creates the data source, search index, skillset, and indexer.
         """
         # Orchestrate pipeline steps:
-        data_source = create_data_source()
-        create_search_index()
-        create_skillset()
-        create_indexer(data_source)      
+        data_source = create_data_source(
+            self.AZURE_SEARCH_SERVICE,
+            self.credential,
+            self.container_name,
+            self.data_source_name,
+            self.AZURE_STORAGE_CONNECTION
+        )
+        create_search_index(
+            self.AZURE_SEARCH_SERVICE,
+            self.credential,
+            self.index_name,
+            self.AZURE_OPENAI_ENDPOINT
+        )
+        create_skillset(
+            azure_search_service=self.AZURE_SEARCH_SERVICE,
+            credential=self.credential,
+            index_name=self.index_name,
+            skillset_name=self.skillset_name,
+            azure_openai_endpoint=self.AZURE_OPENAI_ENDPOINT,
+            azure_ai_cognitive_services_key=self.AZURE_AI_COGNITIVE_SERVICES_KEY
+        )
+        create_indexer(
+            azure_search_service=self.AZURE_SEARCH_SERVICE,
+            credential=self.credential,
+            indexer_name=self.indexer_name,
+            skillset_name=self.skillset_name,
+            index_name=self.index_name,
+            data_source=data_source
+        )
