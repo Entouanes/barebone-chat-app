@@ -11,3 +11,6 @@ secrets*
 *.pdf
 *.txt
 *.drawio
+
+// python cache
+__pycache__/
