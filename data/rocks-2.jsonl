@@ -101,12 +101,6 @@
   "description": "A type of limestone formed by mineral springs, often used in building."
 }
 {
-  "rockName": "Flint",
-  "colour": "Dark gray to black",
-  "continent": "Europe",
-  "description": "A hard sedimentary rock often used historically for tools and fire-starting."
-}
-{
   "rockName": "Anorthosite",
   "colour": "Light gray to white",
   "continent": "Australia",
