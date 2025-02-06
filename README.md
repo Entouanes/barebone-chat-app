@@ -28,7 +28,7 @@ To set up the project locally, follow these steps:
 
 4. **Start the development server:**
     ```bash
-    streamlit run frontend/chat_component.py
+    streamlit run app/chat_component.py
     ```
 
 5. **Open your browser:**
@@ -47,6 +47,8 @@ The script available at `/app/search/main.py` will create the index. Once the in
 
 For this example, data is taken from:
 [https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ny-philharmonic/ny-philharmoni-full](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ny-philharmonic/ny-philharmoni-full)
+
+We left two sample .jsonl files in the `data` directory. You can use these files to learn to and implement a different indexing strategy. 
 
 ## Blob Upload
 
