@@ -73,8 +73,7 @@ def create_search_index(azure_search_service, credential, index_name, azure_open
     semantic_config = SemanticConfiguration(  
         name="my-semantic-config",  
         prioritized_fields=SemanticPrioritizedFields(  
-            title_field=SemanticField(field_name="orchestra"),
-            content_fields=[SemanticField(field_name="works")]
+            title_field=SemanticField(field_name="orchestra")
         ),  
     )  
     # Configure semantic search settings
@@ -229,18 +228,19 @@ def create_indexer(azure_search_service, credential, indexer_name, skillset_name
     # Define an indexer with the specified skillset and target index.
     indexer_parameters = IndexingParameters(
         configuration=IndexingParametersConfiguration(
-            parsing_mode="json",
+            parsing_mode="jsonArray",
             document_root="/programs",
+            query_timeout=None
         )
     )
     indexer = SearchIndexer(  
         name=indexer_name,  
         description="Indexer to index documents and generate embeddings",  
-        skillset_name=skillset_name,  
+        #skillset_name=skillset_name,  
         target_index_name=index_name,  
         data_source_name=data_source.name,
         parameters=indexer_parameters,
-        schedule=IndexingSchedule(interval="PT2H", max_failed_items=10)
+        schedule=IndexingSchedule(interval="PT2H")
 
     )  
     # Apply and run the indexer
