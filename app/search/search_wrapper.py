@@ -6,7 +6,7 @@ and semantic search functionalities.
 from azure.search.documents import SearchClient
 from azure.search.documents.models import VectorizableTextQuery
 from azure.identity import DefaultAzureCredential
-from utils import create_data_source, create_search_index, create_skillset, create_indexer
+from search.utils import create_data_source, create_search_index, create_skillset, create_indexer
 from dotenv import load_dotenv
 import os
 
@@ -48,7 +48,7 @@ class SearchWrapper:
         results = self.search_client.search(
             search_text=query,
             semantic_configuration_name='my-semantic-config',
-            top=5,
+            top=1,
         )
 
         return results

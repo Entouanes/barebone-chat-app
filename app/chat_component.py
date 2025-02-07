@@ -1,7 +1,7 @@
 # Chat component for the barebone chat app using Azure OpenAI and Streamlit
 from openai import AzureOpenAI  # Import Azure OpenAI client
 import streamlit as st       # Import Streamlit for UI
-from app.search.search_wrapper import SearchWrapper  # Import search service wrapper
+from search.search_wrapper import SearchWrapper  # Import search service wrapper
 
 # Extract API configuration from Streamlit secrets
 api_key = st.secrets["AZURE_OPENAI_API_KEY"]
@@ -34,6 +34,7 @@ client = AzureOpenAI(
 GROUNDED_PROMPT="""
 You are an AI assistant that helps users learn from the information found in the source material.
 Answer the query using only the sources provided below.
+The sources are in JSON format. You can use the information in the sources to answer the query.
 Use bullets if the answer has multiple points.
 If the answer is longer than 3 sentences, provide a summary.
 Answer ONLY with the facts listed in the list of sources below. Cite your source when you answer the question
@@ -48,7 +49,7 @@ search_service = SearchWrapper()
 
 # Helper function to format sources for the prompt
 def sources_formatted(sources):
-    return "=================\n".join([f'TITLE: {document["title"]}, CONTENT: {document["chunk"]}, LOCATIONS: {document["locations"]}' for document in sources])
+    return list(sources)
 
 # Initialize session messages if not present
 if "messages" not in st.session_state:
